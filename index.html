@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="province.js"></script>
+    <script src="city.js"></script>
+    <script src="county.js"></script>
+</head>
+
+<body>
+    <select name="province" id="province">
+        <option value="000">请选择省份</option>
+    </select>
+    <select name="city" id="city">
+    </select>
+    <select name="county" id="county">
+    </select>
+    <!-- 定义三个选择框 -->
+    <script>
+        // console.log(city[1]);
+        var province = document.querySelector('#province');
+        var city = document.querySelector('#city');
+        var county = document.querySelector('#county');
+        for (var i = 0; i < provinceS.length; i++) {
+            var opt = document.createElement('option');
+            //动态创建节点
+            opt.setAttribute('value', provinceS[i].item_code);
+            opt.innerHTML = provinceS[i].item_name;
+            province.appendChild(opt);
+        } //这里是动态创建省的节点；
+        //------------下面根据选择的省去创建市
+        province.addEventListener('change', function () {
+            city.innerHTML = ''; //清空本来的列表
+            county.innerHTML = '';
+            var provinceId = this.value;
+            provinceId = provinceId / 10000;
+            init(city); //初始化
+            // console.log(provinceId);
+            // console.log(typeof provinceId);
+            for (var i = 0; i < cityS.length; i++) {
+                var citySid = Math.floor(cityS[i].item_code / 10000);
+                // console.log(typeof citySid);
+                // console.log(citySid);
+                if (citySid == provinceId) {
+                    var opt = document.createElement('option');
+                    //动态创建节点
+                    opt.setAttribute('value', cityS[i].item_code);
+                    opt.innerHTML = cityS[i].item_name;
+                    city.appendChild(opt);
+                }
+            } //添加了各种市
+        })
+
+        // province.onchange();
+        city.addEventListener('change', function () {
+            county.innerHTML = '';
+            var citySid = this.value;
+            citySid = citySid / 100;
+            init(county); //初始化
+            for (let i = 0; i < countyS.length; i++) {
+                // console.log(countyS[i]);
+                var countyId = Math.floor(countyS[i].item_code / 100);
+                // console.log(countyId);
+                if (countyId === citySid) {
+                    var opt = document.createElement('option');
+                    //动态创建节点
+                    opt.setAttribute('value', countyS[i].item_code);
+                    opt.innerHTML = countyS[i].item_name;
+                    county.appendChild(opt);
+                }
+            }
+        })
+
+        function init(ele) {
+            var opt = document.createElement('option');
+            opt.setAttribute('value', 000);
+            opt.innerHTML = '请选择';
+            ele.appendChild(opt);
+        }
+    </script>
+</body>
+
+</html>
