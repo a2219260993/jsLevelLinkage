@@ -2,11 +2,11 @@
 
 # 完成层级联动效果
 
-![Snipaste_2020-11-17_23-44-41](C:\Users\Night_yu\OneDrive\code\html5\js层级联动\Snipaste_2020-11-17_23-44-41.png)
+![Snipaste_2020-11-17_23-44-41](Snipaste_2020-11-17_23-44-41.png)
 
-![Snipaste_2020-11-17_23-45-09](C:\Users\Night_yu\OneDrive\code\html5\js层级联动\Snipaste_2020-11-17_23-45-09.png)
+![Snipaste_2020-11-17_23-45-09](Snipaste_2020-11-17_23-45-09.png)
 
-![Snipaste_2020-11-17_23-45-16](C:\Users\Night_yu\OneDrive\code\html5\js层级联动\Snipaste_2020-11-17_23-45-16.png)
+![Snipaste_2020-11-17_23-45-16](Snipaste_2020-11-17_23-45-16.png)
 
  利用了code编码的属性 前两位代表省  中间两位代表市 后面两位代表县
 
